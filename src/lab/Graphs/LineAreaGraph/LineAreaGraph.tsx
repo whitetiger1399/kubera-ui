@@ -27,8 +27,7 @@ let indexer: number;
 
 const legenddata: Array<LegendData> = [{ value: [] }];
 const dd3: AreaGrapher[] = [{ metricName: '', data: [] }];
-const bisectDate = bisector<DataValue, Date>((d) => new Date(d.date * 1000))
-  .left;
+const bisectDate = bisector<DataValue, Date>((d) => new Date(d.date)).left;
 
 const brushMargin = { top: 10, bottom: 15, left: 50, right: 20 };
 const chartSeparation = 10;
@@ -46,7 +45,7 @@ const tooltipStyles = {
 };
 
 // accessors
-const getDate = (d: DataValue) => new Date(d.date * 1000);
+const getDate = (d: DataValue) => new Date(d.date);
 const getValue = (d: DataValue) => d.value;
 
 export type AreaGraphProps = {
